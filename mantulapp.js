@@ -5,7 +5,7 @@
 */
 ["turbo:click","turbo:submit-start"].forEach(function(t){window.addEventListener(t,function(){Turbo.navigator.delegate.adapter.showProgressBar()})});
 
-document.addEventListener("turbo:load",function(){window.location.href.indexOf("?m=1")>-1&&(window.location.href=window.location.href.replace("?m=1","?m=0")),carouselIndex(),mainNav(),darkMode(),postPaginationMultiple(),adsMove(),backToTop();let o=$(".post-detail"),e=0;o.length>0&&$(window).on("load scroll",function(){var t=o.outerHeight();$(window).scrollTop()+$(window).height()>=t&&!e&&(e=1,relatedPost(),postComment())})});
+document.addEventListener("turbo:load",function(){carouselIndex(),mainNav(),darkMode(),postPaginationMultiple(),adsMove(),backToTop();let o=$(".post-detail"),e=0;o.length>0&&$(window).on("load scroll",function(){var t=o.outerHeight();$(window).scrollTop()+$(window).height()>=t&&!e&&(e=1,relatedPost(),postComment())})});
 
 /* main-nav */
 function mainNav(){$("#main-nav div.nav-link").unbind("click"),$("#main-nav div.nav-link").on("click",function(){let n=$(this),a=n.data("nav");$("#main-nav div.nav-link").removeClass("active"),n.addClass("active"),$("#main-content, #main-categories, #main-archive, #main-sidebar").addClass("d-none"),$("#main-"+a).removeClass("d-none"),$("#widget-main-header, #widget-main-pinned").addClass("d-none")}),$(".back-to-content").on("click",function(){$("#main-categories, #main-archive, #main-sidebar").addClass("d-none"),$("#main-nav div.nav-link").removeClass("active"),$("#widget-main-header, #widget-main-pinned, #main-content").removeClass("d-none")})}
